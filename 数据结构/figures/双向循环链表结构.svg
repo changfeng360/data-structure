@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1220 660" role="img" aria-labelledby="title desc">
+  <title id="title">带头结点的双向循环链表</title>
+  <desc id="desc">上半部分为空表，头结点的 next 和 prior 都指向自身。下半部分为非空表，head、A、B、C 依次由 next 连接并回到 head，prior 反向连接并回到 head。</desc>
+  <defs>
+    <marker id="arrowNext" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#1769aa"/>
+    </marker>
+    <marker id="arrowPrior" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#b45309"/>
+    </marker>
+    <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+      <rect width="8" height="8" fill="#f1f5f9"/>
+      <path d="M 0 0 V 8" stroke="#94a3b8" stroke-width="2"/>
+    </pattern>
+    <style>
+      text { font-family: "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif; fill: #172033; }
+      .heading { font-size: 24px; font-weight: 700; }
+      .caption { font-size: 20px; font-weight: 600; }
+      .node-text { font-size: 21px; font-weight: 700; text-anchor: middle; dominant-baseline: middle; }
+      .field-text { font-size: 14px; font-weight: 600; text-anchor: middle; dominant-baseline: middle; }
+      .formula { font-size: 19px; font-family: Consolas, "Microsoft YaHei", monospace; }
+      .next { fill: none; stroke: #1769aa; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; marker-end: url(#arrowNext); }
+      .prior { fill: none; stroke: #b45309; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; marker-end: url(#arrowPrior); }
+      .node-border { fill: none; stroke: #334155; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect width="1220" height="660" rx="18" fill="#ffffff"/>
+  <text class="heading" x="58" y="43">带头结点的双向循环链表</text>
+  <line x1="58" y1="58" x2="1162" y2="58" stroke="#cbd5e1" stroke-width="2"/>
+
+  <text class="caption" x="58" y="92">① 空表：只有头结点</text>
+  <rect x="58" y="108" width="1104" height="196" rx="12" fill="#f8fafc"/>
+  <path class="next" d="M 700 170 H 770 V 125 H 610 V 155"/>
+  <path class="prior" d="M 520 209 H 465 V 260 H 610 V 227"/>
+  <text x="785" y="131" font-size="18" fill="#1769aa">next 回到 head</text>
+  <text x="774" y="266" font-size="18" fill="#b45309">prior 回到 head</text>
+  <text x="350" y="197" font-size="20" font-weight="700">L 指向 head</text>
+  <rect x="520" y="155" width="50" height="72" fill="#fde68a"/>
+  <rect x="570" y="155" width="80" height="72" fill="url(#hatch)"/>
+  <rect x="650" y="155" width="50" height="72" fill="#a5f3fc"/>
+  <rect class="node-border" x="520" y="155" width="180" height="72" rx="2"/>
+  <text class="field-text" x="545" y="192">prior</text>
+  <text class="node-text" x="610" y="192">head</text>
+  <text class="field-text" x="675" y="192">next</text>
+  <text class="formula" x="80" y="292">head-&gt;next == head ； head-&gt;prior == head</text>
+
+  <text class="caption" x="58" y="341">② 非空表：同一组结点同时由 next 和 prior 连成环</text>
+  <rect x="58" y="355" width="1104" height="276" rx="12" fill="#f8fafc"/>
+  <text x="825" y="333" font-size="17" fill="#1769aa">● 蓝色：next（向后继）</text>
+  <text x="825" y="355" font-size="17" fill="#b45309">● 橙色：prior（向前驱）</text>
+
+  <!-- Forward links, including the last node returning to the head. -->
+  <path class="next" d="M 290 458 H 340 V 405 H 475 V 438"/>
+  <path class="next" d="M 560 458 H 610 V 405 H 745 V 438"/>
+  <path class="next" d="M 830 458 H 880 V 405 H 1015 V 438"/>
+  <path class="next" d="M 1100 458 H 1130 V 380 H 205 V 438"/>
+  <!-- Backward links, including the head pointing to the last node. -->
+  <path class="prior" d="M 390 490 H 340 V 545 H 205 V 510"/>
+  <path class="prior" d="M 660 490 H 610 V 545 H 475 V 510"/>
+  <path class="prior" d="M 930 490 H 880 V 545 H 745 V 510"/>
+  <path class="prior" d="M 120 490 H 85 V 565 H 1015 V 510"/>
+
+  <text x="80" y="399" font-size="18" font-weight="700">L 指向 head</text>
+
+  <!-- Head node. -->
+  <rect x="120" y="438" width="45" height="72" fill="#fde68a"/>
+  <rect x="165" y="438" width="80" height="72" fill="url(#hatch)"/>
+  <rect x="245" y="438" width="45" height="72" fill="#a5f3fc"/>
+  <rect class="node-border" x="120" y="438" width="170" height="72" rx="2"/>
+  <text class="field-text" x="142" y="475">prior</text>
+  <text class="node-text" x="205" y="475">head</text>
+  <text class="field-text" x="267" y="475">next</text>
+
+  <!-- Data nodes A, B, and C. -->
+  <rect x="390" y="438" width="45" height="72" fill="#fde68a"/>
+  <rect x="435" y="438" width="80" height="72" fill="#fecaca"/>
+  <rect x="515" y="438" width="45" height="72" fill="#a5f3fc"/>
+  <rect class="node-border" x="390" y="438" width="170" height="72" rx="2"/>
+  <text class="field-text" x="412" y="475">prior</text>
+  <text class="node-text" x="475" y="475">A</text>
+  <text class="field-text" x="537" y="475">next</text>
+
+  <rect x="660" y="438" width="45" height="72" fill="#fde68a"/>
+  <rect x="705" y="438" width="80" height="72" fill="#fecaca"/>
+  <rect x="785" y="438" width="45" height="72" fill="#a5f3fc"/>
+  <rect class="node-border" x="660" y="438" width="170" height="72" rx="2"/>
+  <text class="field-text" x="682" y="475">prior</text>
+  <text class="node-text" x="745" y="475">B</text>
+  <text class="field-text" x="807" y="475">next</text>
+
+  <rect x="930" y="438" width="45" height="72" fill="#fde68a"/>
+  <rect x="975" y="438" width="80" height="72" fill="#fecaca"/>
+  <rect x="1055" y="438" width="45" height="72" fill="#a5f3fc"/>
+  <rect class="node-border" x="930" y="438" width="170" height="72" rx="2"/>
+  <text class="field-text" x="952" y="475">prior</text>
+  <text class="node-text" x="1015" y="475">C</text>
+  <text class="field-text" x="1077" y="475">next</text>
+
+  <text class="formula" x="80" y="607">对任一结点 p（包括 head）：p-&gt;next-&gt;prior == p，p-&gt;prior-&gt;next == p</text>
+</svg>
